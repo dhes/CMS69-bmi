@@ -1,0 +1,54 @@
+{
+    "_id": "6d281fcf-e1d7-42a7-8a7d-08549064ec3d",
+    "colName": "$extract",
+    "created": "2025-02-12T23:47:46.022Z",
+    "sortNum": 40000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f2eaff21-6f9f-4bdf-ae0b-6858715bef8b",
+            "colId": "6d281fcf-e1d7-42a7-8a7d-08549064ec3d",
+            "containerId": "",
+            "name": "smoking status first draft",
+            "url": "QuestionnaireResponse/smoking-questionnaireresponse/$extract",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-12T23:48:27.990Z",
+            "modified": "2025-02-13T00:51:52.468Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueReference\": {\n        \"reference\": \"Patient/tus-screened\"\n      }\n    },\n    {\n      \"name\": \"in\",\n      \"resource\": {\n        \"resourceType\": \"StructureDefinition\",\n        \"meta\": {\n          \"profile\": [\n            \"http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-extract-definition\"\n          ]\n        },\n        \"url\": \"http://example.org/StructureDefinition/smoking-status-extract\",\n        \"version\": \"1.0.0\",\n        \"name\": \"SmokingStatusExtract\",\n        \"status\": \"active\",\n        \"kind\": \"resource\",\n        \"abstract\": false,\n        \"type\": \"Observation\",\n        \"baseDefinition\": \"http://hopena.info/StructureDefinition/smoking-status\",\n        \"derivation\": \"constraint\",\n        \"differential\": {\n          \"element\": [\n            {\n              \"id\": \"Observation\",\n              \"path\": \"Observation\",\n              \"mapping\": [\n                {\n                  \"identity\": \"questionnaireResponse\",\n                  \"map\": \"item.where(linkId='0').repeat\"\n                }\n              ]\n            },\n            {\n              \"id\": \"Observation.meta\",\n              \"path\": \"Observation.meta\",\n              \"patternMeta\": {\n                \"profile\": [\n                  \"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation\"\n                ]\n              }\n            },\n            {\n              \"id\": \"Observation.status\",\n              \"path\": \"Observation.status\",\n              \"patternCode\": \"final\"\n            },\n            {\n              \"id\": \"Observation.category\",\n              \"path\": \"Observation.category\",\n              \"patternCodeableConcept\": {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/observation-category\",\n                    \"code\": \"survey\",\n                    \"display\": \"Survey\"\n                  }\n                ]\n              }\n            },\n            {\n              \"id\": \"Observation.code\",\n              \"path\": \"Observation.code\",\n              \"patternCodeableConcept\": {\n                \"coding\": [\n                  {\n                    \"system\": \"http://loinc.org\",\n                    \"code\": \"72166-2\",\n                    \"display\": \"Tobacco use screening\"\n                  }\n                ]\n              }\n            },\n            {\n              \"id\": \"Observation.subject\",\n              \"path\": \"Observation.subject\",\n              \"mapping\": [\n                {\n                  \"identity\": \"questionnaireResponse\",\n                  \"map\": \"subject\"\n                }\n              ]\n            },\n            {\n              \"id\": \"Observation.id\",\n              \"path\": \"Observation.id\",\n              \"mapping\": [\n                {\n                  \"identity\": \"questionnaireResponse\",\n                  \"map\": \"item.where(linkId='0').item.where(linkId='1').answer.value\"\n                }\n              ]\n            },\n            {\n              \"id\": \"Observation.effectiveDateTime\",\n              \"path\": \"Observation.effectiveDateTime\",\n              \"mapping\": [\n                {\n                  \"identity\": \"questionnaireResponse\",\n                  \"map\": \"item.where(linkId='0').item.where(linkId='2').answer.valueDateTime\"\n                }\n              ]\n            },\n            {\n              \"id\": \"Observation.valueCodeableConcept\",\n              \"path\": \"Observation.valueCodeableConcept\",\n              \"mapping\": [\n                {\n                  \"identity\": \"questionnaireResponse\",\n                  \"map\": \"item.where(linkId='0').item.where(linkId='3').answer.valueCoding\"\n                }\n              ]\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "fe708680-0b1e-40d7-9113-537806adeb78",
+            "colId": "6d281fcf-e1d7-42a7-8a7d-08549064ec3d",
+            "containerId": "",
+            "name": "smoking status second draft",
+            "url": "QuestionnaireResponse/$extract",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-24T01:25:50.360Z",
+            "modified": "2025-02-27T00:27:09.287Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"questionnaire-response\",\n      \"resource\": {\n        \"resourceType\": \"QuestionnaireResponse\",\n        \"meta\": {\n          \"profile\": [\n            \"http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|3.0\"\n          ],\n          \"tag\": [\n            {\n              \"code\": \"lformsVersion: 36.3.2\"\n            }\n          ]\n        },\n        \"status\": \"completed\",\n        \"authored\": \"2025-02-27T00:14:51.993Z\",\n        \"questionnaire\": \"http://hopena.info/Questionnaire/smoking-input\",\n        \"item\": [\n          {\n            \"answer\": [\n              {\n                \"valueCoding\": {\n                  \"system\": \"http://loinc.org\",\n                  \"code\": \"LA18978-9\",\n                  \"display\": \"Never smoker\"\n                }\n              }\n            ],\n            \"linkId\": \"1\",\n            \"text\": \"Smoking Status\"\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/tus-screened\"\n        }\n      }\n    }\n  ]\n}",
+                "form": []
+            }
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/fhir+json"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}

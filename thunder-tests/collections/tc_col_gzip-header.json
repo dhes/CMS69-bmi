@@ -1,0 +1,38 @@
+{
+    "_id": "93f79340-34fb-49cf-8c25-fa136f0404f1",
+    "colName": "gzip Header",
+    "created": "2025-02-18T00:25:59.306Z",
+    "sortNum": 60000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9e8bcd94-6807-4491-bc49-752036b05ebd",
+            "colId": "93f79340-34fb-49cf-8c25-fa136f0404f1",
+            "containerId": "",
+            "name": "POST SDC full-ig.zip",
+            "url": "ImplementationGuide/$upload",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-18T00:26:55.712Z",
+            "modified": "2025-02-18T00:26:55.712Z",
+            "headers": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../../Downloads/full-ig.zip"
+            }
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/gzip"
+            }
+        ],
+        "options": {
+            "baseUrl": "{{FHIR_SERVER_URL}}"
+        }
+    }
+}

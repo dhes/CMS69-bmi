@@ -1,0 +1,12 @@
+/output
+/temp
+/template
+input-cache/
+/input/vocabulary/.DS_Store
+**/.DS_Store
+bundles/
+.env
+.DS_Store
+CMS139FHIR-v0.3.000-FHIR4-Reorganized
+CMS139FHIR-v0.3.000-FHIR4-TestCases
+node_modules/
