@@ -1,16 +1,8 @@
-/*
-@update: JKR 2024-04-02 ->
-Check display code accuracy against source system                                                        
-Ensure all fluent functions are not referencing any deprecated functions.   
-https://oncprojectracking.healthit.gov/support/browse/CQLIT-414
-*/
-
-
-library QICoreCommon version '2.1.000'
+library QICoreCommon version '1.5.000'
 
 using QICore version '4.1.1'
 
-include FHIRHelpers version '4.4.000'
+include FHIRHelpers version '4.3.000'
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct'
@@ -45,7 +37,7 @@ code "inpatient non-acute": 'NONAC' from ActCode display 'inpatient non-acute'
 code "observation encounter": 'OBSENC' from ActCode display 'observation encounter'
 code "pre-admission": 'PRENC' from ActCode display 'pre-admission'
 code "short stay": 'SS' from ActCode display 'short stay'
-code "virtual": 'VR' from ActCode display 'Virtual'
+code "virtual": 'VR' from ActCode display 'VR'
 
 // Condition Category Codes
 code "problem-list-item": 'problem-list-item' from "ConditionCategory" display 'Problem List Item'
@@ -53,29 +45,29 @@ code "encounter-diagnosis": 'encounter-diagnosis' from "ConditionCategory" displ
 code "health-concern": 'health-concern' from "USCoreConditionCategoryExtensionCodes" display 'Health Concern'
 
 // Condition Clinical Status Codes - Consider value sets for these
-code "active": 'active' from "ConditionClinicalStatusCodes" display 'Active'
-code "recurrence": 'recurrence' from "ConditionClinicalStatusCodes" display 'Recurrence'
-code "relapse": 'relapse' from "ConditionClinicalStatusCodes" display 'Relapse'
-code "inactive": 'inactive' from "ConditionClinicalStatusCodes" display 'Inactive'
-code "remission": 'remission' from "ConditionClinicalStatusCodes" display 'Remission'
-code "resolved": 'resolved' from "ConditionClinicalStatusCodes" display 'Resolved'
+code "active": 'active' from "ConditionClinicalStatusCodes"
+code "recurrence": 'recurrence' from "ConditionClinicalStatusCodes"
+code "relapse": 'relapse' from "ConditionClinicalStatusCodes"
+code "inactive": 'inactive' from "ConditionClinicalStatusCodes"
+code "remission": 'remission' from "ConditionClinicalStatusCodes"
+code "resolved": 'resolved' from "ConditionClinicalStatusCodes"
 
 // Condition Verification Status Codes - Consider value sets for these
-code "unconfirmed": 'unconfirmed' from ConditionVerificationStatusCodes display 'Unconfirmed'
-code "provisional": 'provisional' from ConditionVerificationStatusCodes display 'Provisional'
-code "differential": 'differential' from ConditionVerificationStatusCodes display 'Differential'
-code "confirmed": 'confirmed' from ConditionVerificationStatusCodes display 'Confirmed'
-code "refuted": 'refuted' from ConditionVerificationStatusCodes display 'Refuted'
-code "entered-in-error": 'entered-in-error' from ConditionVerificationStatusCodes display 'Entered in Error'
+code "unconfirmed": 'unconfirmed' from ConditionVerificationStatusCodes
+code "provisional": 'provisional' from ConditionVerificationStatusCodes
+code "differential": 'differential' from ConditionVerificationStatusCodes
+code "confirmed": 'confirmed' from ConditionVerificationStatusCodes
+code "refuted": 'refuted' from ConditionVerificationStatusCodes
+code "entered-in-error": 'entered-in-error' from ConditionVerificationStatusCodes
 
-code "allergy-active": 'active' from "AllergyIntoleranceClinicalStatusCodes" display 'Active'
-code "allergy-inactive": 'inactive' from "AllergyIntoleranceClinicalStatusCodes" display 'Inactive'
-code "allergy-resolved": 'resolved' from "AllergyIntoleranceClinicalStatusCodes" display 'Resolved'
+code "allergy-active": 'active' from "AllergyIntoleranceClinicalStatusCodes"
+code "allergy-inactive": 'inactive' from "AllergyIntoleranceClinicalStatusCodes"
+code "allergy-resolved": 'resolved' from "AllergyIntoleranceClinicalStatusCodes"
 
 // Allergy/Intolerance Verification Status Codes - Consider value sets for these
-code "allergy-unconfirmed": 'unconfirmed' from AllergyIntoleranceVerificationStatusCodes display 'Unconfirmed'
-code "allergy-confirmed": 'confirmed' from AllergyIntoleranceVerificationStatusCodes display 'Confirmed'
-code "allergy-refuted": 'refuted' from AllergyIntoleranceVerificationStatusCodes display 'Refuted'
+code "allergy-unconfirmed": 'unconfirmed' from AllergyIntoleranceVerificationStatusCodes
+code "allergy-confirmed": 'confirmed' from AllergyIntoleranceVerificationStatusCodes
+code "allergy-refuted": 'refuted' from AllergyIntoleranceVerificationStatusCodes
 
 // MedicationRequest Category Codes
 code "Inpatient": 'inpatient' from "MedicationRequestCategory" display 'Inpatient'
@@ -90,7 +82,7 @@ code "CC": 'CC' from "Diagnosis Role" display 'Chief complaint'
 code "CM": 'CM' from "Diagnosis Role" display 'Comorbidity diagnosis'
 code "pre-op": 'pre-op' from "Diagnosis Role" display 'pre-op diagnosis'
 code "post-op": 'post-op' from "Diagnosis Role" display 'post-op diagnosis'
-code "billing": 'billing' from "Diagnosis Role" display 'Billing'
+code "billing": 'billing' from "Diagnosis Role" display 'billing diagnosis'
 
 // Observation Category Codes
 code "social-history": 'social-history' from "ObservationCategoryCodes" display 'Social History'
@@ -102,7 +94,7 @@ code "survey": 'survey' from "ObservationCategoryCodes" display 'Survey'
 code "exam": 'exam' from "ObservationCategoryCodes" display 'Exam'
 code "therapy": 'therapy' from "ObservationCategoryCodes" display 'Therapy'
 code "activity": 'activity' from "ObservationCategoryCodes" display 'Activity'
-
+code "clinical-test": 'clinical-test' from "USCoreObservationCategoryExtensionCodes" display 'Clinical Test'
 
 context Patient
 
@@ -228,7 +220,13 @@ define fluent function isActivity(observation Observation):
     where C ~ "activity"
   )
 
-
+/*
+@description: Returns true if the given observation is a clinical test result
+*/
+define fluent function isClinicalTest(observation Observation):
+  exists (observation.category C
+    where C ~ "clinical-test"
+  )
 
 /*
 @description: Returns true if the given MedicationRequest has a category of Community
@@ -290,10 +288,10 @@ If the input is a DateTime Interval, the result is the input.
 If the input is a Quantity Interval, the quantities are expected to be calendar-durations interpreted as an Age, and the result
 is a DateTime Interval beginning on the date the patient turned the age given as the start of the quantity interval, and ending
 immediately before one year later than the date the patient turned the age given as the end of the quantity interval.
-If the input is a Timing, an error will be thrown indicating that Timing calculations are not implemented. Any other input will reslt in a null DateTime Interval
+Any other input will reslt in a null DateTime Interval
 @deprecated: This function is deprecated. Use the fluent function `toInterval()` instead
 */
-define function ToInterval(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>, Timing>):
+define function ToInterval(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>>):
   case
 	  when choice is DateTime then
     	Interval[choice as DateTime, choice as DateTime]
@@ -305,8 +303,8 @@ define function ToInterval(choice Choice<DateTime, Quantity, Interval<DateTime>,
 		when choice is Interval<Quantity> then
 		  Interval[Patient.birthDate + (choice.low as Quantity),
 			  Patient.birthDate + (choice.high as Quantity) + 1 year)
-		when choice is Timing then
-      Message(null, true, 'NOT_IMPLEMENTED', 'Error', 'Calculation of an interval from a Timing value is not supported') as Interval<DateTime>
+		when choice is QICore.Timing then
+            null as Interval<DateTime>
 		else
 			null as Interval<DateTime>
 	end
@@ -329,9 +327,9 @@ If the input is a DateTime Interval, the result is the input.
 If the input is a Quantity Interval, the quantities are expected to be calendar-durations interpreted as an Age, and the result
 is a DateTime Interval beginning on the date the patient turned the age given as the start of the quantity interval, and ending
 immediately before one year later than the date the patient turned the age given as the end of the quantity interval.
-If the input is a Timing, an error will be thrown indicating that Timing calculations are not implemented. Any other input will reslt in a null DateTime Interval
+Any other input will reslt in a null DateTime Interval
 */
-define fluent function toInterval(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>, Timing>):
+define fluent function toInterval(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>>):
   case
 	  when choice is DateTime then
     	Interval[choice as DateTime, choice as DateTime]
@@ -343,8 +341,6 @@ define fluent function toInterval(choice Choice<DateTime, Quantity, Interval<Dat
 		when choice is Interval<Quantity> then
 		  Interval[Patient.birthDate + (choice.low as Quantity),
 			  Patient.birthDate + (choice.high as Quantity) + 1 year)
-		when choice is Timing then
-      Message(null, true, 'NOT_IMPLEMENTED', 'Error', 'Calculation of an interval from a Timing value is not supported') as Interval<DateTime>
 		else
 			null as Interval<DateTime>
 	end
@@ -399,8 +395,8 @@ define fluent function abatementInterval(condition Condition):
 /*
 @description: Returns an interval representing the normalized prevalence period of a given Condition.
 @comment: Uses the ToInterval and ToAbatementInterval functions to determine the widest potential interval from
-onset to abatement as specified in the given Condition. If the condition is active, or has an abatement date the resulting 
-interval will have a closed ending boundary. Otherwise, the resulting interval will have an open ending boundary.
+onset to abatement as specified in the given Condition. If the condition is active, the resulting interval will have
+a closed ending boundary. If the condition is not active, the resulting interval will have an open ending boundary.
 @deprecated: This function is deprecated. Use the `prevalenceInterval()` fluent function instead
 */
 define function ToPrevalenceInterval(condition Condition):
@@ -409,17 +405,13 @@ if condition.clinicalStatus ~ "active"
   or condition.clinicalStatus ~ "relapse" then
   Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition)]
 else
-   (end of ToAbatementInterval(condition)) abatementDate
-    return if abatementDate is null then
-      Interval[start of ToInterval(condition.onset), abatementDate)
-    else
-      Interval[start of ToInterval(condition.onset), abatementDate]
+  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition))
 
 /*
 @description: Returns an interval representing the normalized prevalence period of a given Condition.
 @comment: Uses the ToInterval and ToAbatementInterval functions to determine the widest potential interval from
-onset to abatement as specified in the given Condition. If the condition is active, or has an abatement date the resulting 
-interval will have a closed ending boundary. Otherwise, the resulting interval will have an open ending boundary.
+onset to abatement as specified in the given Condition. If the condition is active, the resulting interval will have
+a closed ending boundary. If the condition is not active, the resulting interval will have an open ending boundary.
 */
 define fluent function prevalenceInterval(condition Condition):
 if condition.clinicalStatus ~ "active"
@@ -427,11 +419,7 @@ if condition.clinicalStatus ~ "active"
   or condition.clinicalStatus ~ "relapse" then
   Interval[start of condition.onset.toInterval(), end of condition.abatementInterval()]
 else
-    (end of condition.abatementInterval()) abatementDate
-    return if abatementDate is null then
-      Interval[start of condition.onset.toInterval(), abatementDate)
-    else
-      Interval[start of condition.onset.toInterval(), abatementDate]
+  Interval[start of condition.onset.toInterval(), end of condition.abatementInterval())
 
 /*
 @description: Returns the tail of the given uri (i.e. everything after the last slash in the URI).

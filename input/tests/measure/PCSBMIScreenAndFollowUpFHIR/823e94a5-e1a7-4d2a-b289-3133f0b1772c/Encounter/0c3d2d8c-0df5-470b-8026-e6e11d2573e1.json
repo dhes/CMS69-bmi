@@ -1,0 +1,31 @@
+{
+  "resourceType": "Encounter",
+  "id": "0c3d2d8c-0df5-470b-8026-e6e11d2573e1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "VR",
+    "display": "virtual",
+    "userSelected": true
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2022-03",
+          "code": "10197000",
+          "display": "Psychiatric interview and evaluation (procedure)",
+          "userSelected": true
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/823e94a5-e1a7-4d2a-b289-3133f0b1772c"
+  },
+  "period": {
+    "start": "2024-01-01T00:00:00.000+00:00",
+    "end": "2024-01-01T00:30:00.000+00:00"
+  }
+}

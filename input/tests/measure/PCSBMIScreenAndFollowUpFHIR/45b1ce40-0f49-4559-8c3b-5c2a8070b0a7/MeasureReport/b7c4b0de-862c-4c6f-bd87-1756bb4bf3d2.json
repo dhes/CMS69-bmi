@@ -1,0 +1,144 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "b7c4b0de-862c-4c6f-bd87-1756bb4bf3d2",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "3272a540-05e6-4ea8-b1c1-000490827255-parameters",
+      "parameter": [
+        {
+          "name": "subject",
+          "valueString": "45b1ce40-0f49-4559-8c3b-5c2a8070b0a7"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+      "valueReference": {
+        "reference": "#3272a540-05e6-4ea8-b1c1-000490827255-parameters"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+      "valueMarkdown": "Amb enc last day of MP, Hospice encounter, BMI 40 kg/m2; dietary regime performed, hospice encounter in Feb of MP"
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+      "valueBoolean": true
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "https://madie.cms.gov/Measure/PCSBMIScreenAndFollowUpFHIR",
+  "period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "group": [
+    {
+      "id": "643465ae7c12bd4a0fdf28c8",
+      "population": [
+        {
+          "id": "28070159-E583-468D-A6EB-3A47F9B54660",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "13A65BC7-CCB8-4189-869C-6C8E46AD5524",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "58F3DCCC-F1A5-4B4B-AC6D-320EDC5BF9D7",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "CD0AB099-6BB7-417D-A627-710CA99C825D",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "50B4FD1B-95FC-404D-BA83-1F54ADD2F00F",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ],
+      "measureScore": {
+        "value": 1
+      }
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "Patient/45b1ce40-0f49-4559-8c3b-5c2a8070b0a7"
+    },
+    {
+      "reference": "Encounter/76fbcaee-e882-40bc-b19a-deef83d33978"
+    },
+    {
+      "reference": "Observation/021a91fa-286d-400d-8569-6ea4ede457c0"
+    },
+    {
+      "reference": "Procedure/000c6910-c69d-47e7-a060-61c827318f30"
+    },
+    {
+      "reference": "Encounter/885fe90e-5c4c-427f-a965-cb5b7ca9d56c"
+    },
+    {
+      "reference": "Coverage/45d18d9e-cbd4-4607-b4dc-dd5a62c2bf32"
+    },
+    {
+      "reference": "Organization/10a4f858-8029-454c-b91a-85aece2b8959"
+    }
+  ]
+}

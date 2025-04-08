@@ -1,0 +1,144 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "b02c79fc-efa9-473f-8a22-7ec4441a3d87",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "ba1ca9cf-9c87-485a-b29f-8a84ad202fa2-parameters",
+      "parameter": [
+        {
+          "name": "subject",
+          "valueString": "8835a50b-0a0f-4e2f-94fa-7c180cd7f905"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+      "valueReference": {
+        "reference": "#ba1ca9cf-9c87-485a-b29f-8a84ad202fa2-parameters"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+      "valueMarkdown": "Adult, ambulatory enc., Low BMI at 17 kg/m2, condition \"underweight\" documented with referral ordered "
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+      "valueBoolean": true
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "https://madie.cms.gov/Measure/PCSBMIScreenAndFollowUpFHIR",
+  "period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "group": [
+    {
+      "id": "643465ae7c12bd4a0fdf28c8",
+      "population": [
+        {
+          "id": "28070159-E583-468D-A6EB-3A47F9B54660",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "13A65BC7-CCB8-4189-869C-6C8E46AD5524",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "58F3DCCC-F1A5-4B4B-AC6D-320EDC5BF9D7",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "50B4FD1B-95FC-404D-BA83-1F54ADD2F00F",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "CD0AB099-6BB7-417D-A627-710CA99C825D",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 1
+        }
+      ],
+      "measureScore": {
+        "value": 1
+      }
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "Patient/8835a50b-0a0f-4e2f-94fa-7c180cd7f905"
+    },
+    {
+      "reference": "Encounter/54037c3c-d252-4f1d-a5da-d54a0b498c3e"
+    },
+    {
+      "reference": "Observation/149f1b1c-f3bf-4a3a-beac-924aa771b08d"
+    },
+    {
+      "reference": "Condition/eba54248-a5ba-46bd-9039-b449f0d0f8d1"
+    },
+    {
+      "reference": "ServiceRequest/4f44d8dc-76ef-4261-8d5e-ced904c32c32"
+    },
+    {
+      "reference": "Coverage/e285386b-62f9-4809-b7b7-aa3a7b4be222"
+    },
+    {
+      "reference": "Organization/0144b9d0-52bb-4060-b4c6-6f3135fb9fc4"
+    }
+  ]
+}

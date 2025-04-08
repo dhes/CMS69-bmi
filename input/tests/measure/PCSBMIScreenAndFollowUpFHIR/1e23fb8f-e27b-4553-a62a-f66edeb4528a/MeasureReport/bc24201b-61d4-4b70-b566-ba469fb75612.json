@@ -1,0 +1,144 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "bc24201b-61d4-4b70-b566-ba469fb75612",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "4439366e-e439-4c2d-a822-0a0f8dc1b51a-parameters",
+      "parameter": [
+        {
+          "name": "subject",
+          "valueString": "1e23fb8f-e27b-4553-a62a-f66edeb4528a"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+      "valueReference": {
+        "reference": "#4439366e-e439-4c2d-a822-0a0f8dc1b51a-parameters"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+      "valueMarkdown": " Enc. midnight 01/01 to 0030 during MP, BMI 25 kg/m2 datetime, dietary recommendations performed period, dx overweight/obese, "
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+      "valueBoolean": true
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "https://madie.cms.gov/Measure/PCSBMIScreenAndFollowUpFHIR",
+  "period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "group": [
+    {
+      "id": "643465ae7c12bd4a0fdf28c8",
+      "population": [
+        {
+          "id": "28070159-E583-468D-A6EB-3A47F9B54660",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "13A65BC7-CCB8-4189-869C-6C8E46AD5524",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "58F3DCCC-F1A5-4B4B-AC6D-320EDC5BF9D7",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "50B4FD1B-95FC-404D-BA83-1F54ADD2F00F",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "CD0AB099-6BB7-417D-A627-710CA99C825D",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 1
+        }
+      ],
+      "measureScore": {
+        "value": 1
+      }
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "Patient/1e23fb8f-e27b-4553-a62a-f66edeb4528a"
+    },
+    {
+      "reference": "Encounter/fdddb5c6-c334-4d07-bbe8-af1473b2ddbc"
+    },
+    {
+      "reference": "Observation/4926bdbe-0d35-4590-ae60-136df18d2240"
+    },
+    {
+      "reference": "Procedure/27ce4f72-d6e1-4521-b925-ffad62c1f9d9"
+    },
+    {
+      "reference": "Condition/091a9bcd-4c2e-4c13-85c6-6e9f36dce0d5"
+    },
+    {
+      "reference": "Coverage/4d5c9c85-b9d6-439b-9691-ce1a6cfbdf76"
+    },
+    {
+      "reference": "Organization/e38b2d87-16e9-4165-acb1-6c68ff662f81"
+    }
+  ]
+}

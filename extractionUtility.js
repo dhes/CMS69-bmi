@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const sourceDir = 'CMS139FHIR-v0.3.000-FHIR4-TestCases';
-const destDir = 'CMS139FHIR-v0.3.000-FHIR4-Reorganized';
+const sourceDir = 'CMS69FHIR-v0.2.000-FHIR4-TestCases';
+const destDir = 'input/tests/measure/PCSBMIScreenAndFollowUpFHIR';
 
 // Ensure the destination directory exists
 if (!fs.existsSync(destDir)) {

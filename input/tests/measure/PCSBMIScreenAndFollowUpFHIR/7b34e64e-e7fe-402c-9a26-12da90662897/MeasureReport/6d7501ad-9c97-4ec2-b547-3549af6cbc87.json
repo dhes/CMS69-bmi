@@ -1,0 +1,144 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "6d7501ad-9c97-4ec2-b547-3549af6cbc87",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "ac6cfa7a-5a11-4316-a2f6-489947e54b86-parameters",
+      "parameter": [
+        {
+          "name": "subject",
+          "valueString": "7b34e64e-e7fe-402c-9a26-12da90662897"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+      "valueReference": {
+        "reference": "#ac6cfa7a-5a11-4316-a2f6-489947e54b86-parameters"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+      "valueMarkdown": "Patient age 79 and has 2 encs. during the MP.  February inpatient encounter discharge to healthcare facility for hospice care. December enc. BMI 40 kg/m2, and dietary recommend made due to dx  of \"Morbid (severe) obesity due to excess calories\" "
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+      "valueBoolean": true
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "https://madie.cms.gov/Measure/PCSBMIScreenAndFollowUpFHIR",
+  "period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "group": [
+    {
+      "id": "643465ae7c12bd4a0fdf28c8",
+      "population": [
+        {
+          "id": "28070159-E583-468D-A6EB-3A47F9B54660",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "13A65BC7-CCB8-4189-869C-6C8E46AD5524",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "58F3DCCC-F1A5-4B4B-AC6D-320EDC5BF9D7",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "50B4FD1B-95FC-404D-BA83-1F54ADD2F00F",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "CD0AB099-6BB7-417D-A627-710CA99C825D",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ],
+      "measureScore": {
+        "value": 1
+      }
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "Patient/7b34e64e-e7fe-402c-9a26-12da90662897"
+    },
+    {
+      "reference": "Encounter/8a1bec02-c6ac-4155-b2c5-f4e09b1b3880"
+    },
+    {
+      "reference": "Observation/06c405f3-3e01-4a00-b67c-4b81d27798d8"
+    },
+    {
+      "reference": "Procedure/0a40d3c7-13d2-447a-b99b-c3c183ff2a92"
+    },
+    {
+      "reference": "Encounter/bd6b5794-734a-4a80-8524-afd51f0dab72"
+    },
+    {
+      "reference": "Coverage/ca893d26-fa68-4801-804c-f84e0761d194"
+    },
+    {
+      "reference": "Organization/e2e2d1cb-4f77-439d-8823-738e590e4d35"
+    }
+  ]
+}

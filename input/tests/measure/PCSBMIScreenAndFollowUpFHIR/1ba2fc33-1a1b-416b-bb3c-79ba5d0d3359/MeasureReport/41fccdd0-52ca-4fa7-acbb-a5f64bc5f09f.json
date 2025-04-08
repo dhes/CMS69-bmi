@@ -1,0 +1,144 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "41fccdd0-52ca-4fa7-acbb-a5f64bc5f09f",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "74c0fc11-0283-4930-aae4-dbae6e520b61-parameters",
+      "parameter": [
+        {
+          "name": "subject",
+          "valueString": "1ba2fc33-1a1b-416b-bb3c-79ba5d0d3359"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+      "valueReference": {
+        "reference": "#74c0fc11-0283-4930-aae4-dbae6e520b61-parameters"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+      "valueMarkdown": "High BMI with intervention ordered - f/u for above nl BMI, condition overweight. Fails because condition dateTime ends before intervention order "
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+      "valueBoolean": true
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "https://madie.cms.gov/Measure/PCSBMIScreenAndFollowUpFHIR",
+  "period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "group": [
+    {
+      "id": "643465ae7c12bd4a0fdf28c8",
+      "population": [
+        {
+          "id": "28070159-E583-468D-A6EB-3A47F9B54660",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "13A65BC7-CCB8-4189-869C-6C8E46AD5524",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "58F3DCCC-F1A5-4B4B-AC6D-320EDC5BF9D7",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "50B4FD1B-95FC-404D-BA83-1F54ADD2F00F",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "CD0AB099-6BB7-417D-A627-710CA99C825D",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ],
+      "measureScore": {
+        "value": 1
+      }
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "Patient/1ba2fc33-1a1b-416b-bb3c-79ba5d0d3359"
+    },
+    {
+      "reference": "Encounter/51fab8d2-2be4-43f1-a4e3-2a14e97b3296"
+    },
+    {
+      "reference": "Observation/f33a548e-2268-492e-aeda-74d3aa77eab9"
+    },
+    {
+      "reference": "Condition/6a450a6a-9436-42f8-afb4-f420f9f0e0e8"
+    },
+    {
+      "reference": "ServiceRequest/d1ab3d21-a45b-45bd-b851-19721f5d7771"
+    },
+    {
+      "reference": "Coverage/20176d9c-0771-4139-a792-de12f670fd7d"
+    },
+    {
+      "reference": "Organization/f70ba34b-92b3-4e14-95de-52ced9c7a54b"
+    }
+  ]
+}

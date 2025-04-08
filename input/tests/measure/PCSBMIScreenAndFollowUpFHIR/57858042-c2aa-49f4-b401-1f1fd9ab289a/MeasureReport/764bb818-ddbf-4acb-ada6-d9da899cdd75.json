@@ -1,0 +1,144 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "764bb818-ddbf-4acb-ada6-d9da899cdd75",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/test-case-cqfm"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "1ab4cc75-20ab-4be7-ba30-909f56023a21-parameters",
+      "parameter": [
+        {
+          "name": "subject",
+          "valueString": "57858042-c2aa-49f4-b401-1f1fd9ab289a"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-inputParameters",
+      "valueReference": {
+        "reference": "#1ab4cc75-20ab-4be7-ba30-909f56023a21-parameters"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-testCaseDescription",
+      "valueMarkdown": "1 clinic enc, last day and last 29 minutes of the year, BMI 25 kg/m2\n 1 hospital enc. for which the patient was discharged to home hospice. "
+    }
+  ],
+  "modifierExtension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-isTestCase",
+      "valueBoolean": true
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": "https://madie.cms.gov/Measure/PCSBMIScreenAndFollowUpFHIR",
+  "period": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "group": [
+    {
+      "id": "643465ae7c12bd4a0fdf28c8",
+      "population": [
+        {
+          "id": "28070159-E583-468D-A6EB-3A47F9B54660",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "13A65BC7-CCB8-4189-869C-6C8E46AD5524",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "58F3DCCC-F1A5-4B4B-AC6D-320EDC5BF9D7",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "id": "50B4FD1B-95FC-404D-BA83-1F54ADD2F00F",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exception",
+                "display": "Denominator Exception"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "id": "CD0AB099-6BB7-417D-A627-710CA99C825D",
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ],
+      "measureScore": {
+        "value": 1
+      }
+    }
+  ],
+  "evaluatedResource": [
+    {
+      "reference": "Patient/57858042-c2aa-49f4-b401-1f1fd9ab289a"
+    },
+    {
+      "reference": "Encounter/35cfc7db-5475-4f0f-ac4a-278fd08a3eb8"
+    },
+    {
+      "reference": "Observation/3fd44e1b-05a4-46a6-a5a7-c533805e5387"
+    },
+    {
+      "reference": "Procedure/af5b046c-c6ee-4f4a-8f76-38658ba832cd"
+    },
+    {
+      "reference": "Encounter/59cae5de-548d-4db1-91f5-6090eed3e368"
+    },
+    {
+      "reference": "Coverage/3510306d-664d-4f43-8647-55f8fed7448a"
+    },
+    {
+      "reference": "Organization/2cf209d4-926f-4d2e-953e-c1a816b5b430"
+    }
+  ]
+}

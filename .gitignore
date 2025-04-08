@@ -7,6 +7,5 @@ input-cache/
 bundles/
 .env
 .DS_Store
-CMS139FHIR-v0.3.000-FHIR4-Reorganized
-CMS139FHIR-v0.3.000-FHIR4-TestCases
+CMS69FHIR-v0.2.000-FHIR4-TestCases
 node_modules/
