@@ -1,0 +1,1 @@
+This collection needed fixing up. There were Practitioner Patrick Pump id 'f007'; and Dr. Evil id different in each test case. We have Dr. John Smith id 'example' already in the system. Will assign that practitioner to all resource in these test cases. 

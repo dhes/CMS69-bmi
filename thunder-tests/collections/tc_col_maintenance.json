@@ -40,6 +40,18 @@
                 "form": [],
                 "binary": "../bundles/measure/PCSBMIScreenAndFollowUpLite/PCSBMIScreenAndFollowUpLite-bundle.json"
             }
+        },
+        {
+            "_id": "243fd790-1e59-413f-a6d9-6ccc1ca72a0e",
+            "colId": "0cbfd1cf-c80a-4d2e-9777-dc0c4e9b328d",
+            "containerId": "",
+            "name": "misc",
+            "url": "Practitioner",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-04-09T01:55:35.771Z",
+            "modified": "2025-04-09T01:55:43.326Z",
+            "headers": []
         }
     ],
     "settings": {
